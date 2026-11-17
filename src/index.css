@@ -1,0 +1,33 @@
+:root {
+
+--backgroundBlue: #050516;
+--deepBlue: #100634;
+--red: #CE0714;
+--darkRed: #8F1E25;
+--darkBlue: #070721;
+--highlightBlue: #0137AD;
+
+--titleFont: "Milonga", serif;
+
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px
+}
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin: 0px
+}
+h1 {
+    margin: 0px
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+}
