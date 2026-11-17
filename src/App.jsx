@@ -1,9 +1,17 @@
 import "./App.css"
+import NavBar from "./components/NavBar"
+import TitleSection from "./components/TitleSection"
 
 export default function App() {
 
   return(
     <div className="background"> 
-    <h1>Fortunato Talavera</h1></div>
+      <NavBar/>
+      <TitleSection/>
+    
+    </div>
+
+
+   
   )
 }
