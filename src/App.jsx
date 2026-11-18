@@ -1,6 +1,7 @@
 import "./App.css"
 import NavBar from "./components/NavBar"
 import TitleSection from "./components/TitleSection"
+import ProximosShows from "./components/ProximosShows"
 
 export default function App() {
 
@@ -8,7 +9,7 @@ export default function App() {
     <div className="background"> 
       <NavBar/>
       <TitleSection/>
-    
+      <ProximosShows/>
     </div>
 
 

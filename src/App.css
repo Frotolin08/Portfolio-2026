@@ -5,6 +5,7 @@
   max-height: max-content;
   display: flex;
   justify-content: center;
+  flex-direction: column;
 
 }
 
@@ -78,6 +79,45 @@ gap: 6%;
 }
 .titleSectionParent {
 width: 100%;
-height: 100%
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 100px  
 
+}
+
+.titleSectionImage {
+  width: 80%;
+  height: auto;
+}
+.titleSectionText {
+  width: 80%;
+  text-align: left;
+  font-family: var(--mainFont);
+  font-size: 20px;
+  color: white;
+}
+.proximosShowsParent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+.proximosShows {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.proximosShowsText {
+  font-family: var(--secondaryFont);
+  font-size: 40px;
+  color: var(--red);
+  font-weight: 800;
 }

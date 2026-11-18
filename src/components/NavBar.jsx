@@ -4,7 +4,7 @@ export default function NavBar(props) {
     return(
 <div className="navBar">
 <button className="navLogo">
-    <img src="../../public/favicon.svg"/>
+    <img src="/public/favicon.svg"/>
 </button>
 
 <div className="navText">
@@ -24,10 +24,10 @@ export default function NavBar(props) {
 
 <div className="navLinks">
     <a href="https://youtube.com" target="_blank">
-        <img src="../../public/logo-youtube.svg"/>
+        <img src="/logo-youtube.svg"/>
     </a>
     <a href="https://spotify.com" target="_blank">
-        <img src="../../public/logo-spotify.svg"/>
+        <img src="/logo-spotify.svg"/>
     </a>
 </div>
 
