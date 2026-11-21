@@ -1,0 +1,41 @@
+[{
+  "title": "Baranda fest 20/11",
+  "date": "2026-11-20",
+  "location": "Catulo Castillo 24801",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "isCurrent": true,
+  "image": "/baranda_fest.jpg",
+  "link": "https://www.instagram.com/p/DfW8ZBMAESX/"
+},
+{
+  "title": "Alimme 30/10",
+  "date": "2026-10-30",
+  "location": "Virrey Olaguer y Feliu 3121",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "isCurrent": true,
+  "image": "/alimme_2026.png",
+  "link": "https://saleplan.ar/ciudad-autonoma-de-buenos-aires/ciudad-de-buenos-aires/planes/FYDD6JMA75YX/fortunato-talavera-en-alimme"
+},
+{
+  "title": "NTA Fest 27/7/26",
+  "date": "Sábado 25/7/26 21:30hs",
+  "location": "Av. Brasil 2640",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "isCurrent": false,
+  "image": "/nta_fest.jpg",
+  "concurrence": 120,
+  "setlist": ["La puerta no cierra", "I want you (she's so heavy)", "Fermin", "Madre del angel", 
+  "No llores por mi Argentina", "Something", "Profundo", "Señor cirujano", "Las habladurias del mundo",
+"Maracuya"]
+},
+{
+  "title": "Pellerock 9/5/26",
+  "date": "Sábado 9/5/26 19:30hs",
+  "location": "Araoz 1218",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "isCurrent": false,
+  "image": "/pellerock.webp",
+  "concurrence": 30,
+  "setlist": ["Las habladurias del mundo", "Just", "Madre del angel", "Post crucifixion", 
+  "Señor cirujano"]}
+]

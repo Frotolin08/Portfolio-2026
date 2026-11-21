@@ -9,6 +9,7 @@ export default function App() {
     <div className="background"> 
       <NavBar/>
       <TitleSection/>
+      <ProximosShows current={true}/>
       <ProximosShows/>
     </div>
 
