@@ -44,6 +44,7 @@ margin-top: 8rem;
   padding-left: 1%;
   padding-right: 15%;
   box-sizing: border-box;
+  z-index: 1000;
 }
 .navLogo {
   cursor: pointer;
@@ -196,4 +197,491 @@ width: 80%;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
+}
+
+.videoSection {
+  width: 100%;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 110px 0;
+  font-family: var(--mainFont);
+  overflow: hidden;
+}
+
+.videoSectionTitle {
+  margin-bottom: 70px;
+  color: var(--red);
+  font-family: var(--secondaryFont);
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.videoSectionContent {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) minmax(0, 980px) minmax(180px, 280px);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.videoArabesque {
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  user-select: none;
+}
+
+
+.videoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 44px 28px;
+  padding: 0 32px;
+  box-sizing: border-box;
+}
+
+.videoCard {
+  display: grid;
+  grid-template-columns: 165px minmax(0, 1fr);
+  align-items: center;
+  min-width: 0;
+  color: white;
+}
+
+.videoThumbnail {
+  position: relative;
+  width: 165px;
+  aspect-ratio: 1;
+  display: block;
+  background: white;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.videoThumbnail img,
+.videoThumbnailPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  background: #dfe2e6;
+}
+
+.videoThumbnailPlaceholder {
+  background: #dfe2e6;
+}
+
+.videoPlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 48px;
+  height: 48px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.videoPlay::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 14px;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 14px solid #b9bec7;
+}
+
+.videoMetadata {
+  min-width: 0;
+  padding-left: 16px;
+}
+
+.videoMetadata h3 {
+  margin: 0 0 18px;
+  overflow: hidden;
+  color: white;
+  font-size: 25px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.videoMetadata p {
+  color: #7f8494;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .videoSectionContent {
+    grid-template-columns: 140px minmax(0, 820px) 140px;
+  }
+
+  .videoGrid {
+    padding: 0 18px;
+  }
+
+  .videoCard {
+    grid-template-columns: 140px minmax(0, 1fr);
+  }
+
+  .videoThumbnail {
+    width: 140px;
+  }
+}
+
+@media (max-width: 780px) {
+  .videoSection {
+    padding: 80px 0;
+  }
+
+  .videoSectionContent {
+    display: block;
+  }
+
+  .videoArabesque {
+    display: none;
+  }
+
+  .videoGrid {
+    width: min(90%, 520px);
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
+
+  .videoCard {
+    grid-template-columns: 130px minmax(0, 1fr);
+  }
+
+  .videoThumbnail {
+    width: 130px;
+  }
+
+  .videoMetadata h3 {
+    font-size: 20px;
+  }
+
+  .videoMetadata p {
+    font-size: 15px;
+  }
+}
+
+.artistSection {
+  width: 80%;
+  min-height: 620px;
+  margin: 100px auto;
+  display: grid;
+  grid-template-columns: 38% 62%;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: var(--mainFont);
+}
+
+.artistImage {
+  width: 100%;
+  height: 520px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+
+}
+
+.artistContent {
+  min-width: 0;
+  padding-left: 60px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.artistName {
+  margin: 0 0 26px;
+  color: var(--red);
+  font-family: var(--titleFont);
+  font-size: clamp(58px, 6vw, 92px);
+  font-weight: 500;
+  line-height: 1;
+  text-shadow: -2px 3px var(--highlightBlue);
+}
+
+.artistInstruments {
+  margin: 0 0 24px;
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.artistText {
+  max-width: 760px;
+  margin: 0;
+  color: #9298ae;
+  font-size: 20px;
+  line-height: 1.25;
+  white-space: pre-line;
+}
+
+@media (max-width: 1000px) {
+  .artistSection {
+    width: 90%;
+    grid-template-columns: 42% 58%;
+  }
+
+  .artistContent {
+    padding-left: 36px;
+  }
+
+  .artistName {
+    font-size: clamp(44px, 7vw, 70px);
+  }
+
+  .artistInstruments {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 680px) {
+  .artistSection {
+    width: 90%;
+    grid-template-columns: 1fr;
+  }
+
+  .artistImage {
+    height: 420px;
+  }
+
+  .artistContent {
+    padding: 40px 0 0;
+  }
+
+  .artistName {
+    font-size: 48px;
+  }
+
+  .artistInstruments {
+    font-size: 21px;
+  }
+
+  .artistText {
+    font-size: 17px;
+  }
+}
+
+.gallerySection {
+  width: 100%;
+  min-height: 570px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 70px 0 100px;
+  overflow: hidden;
+  font-family: var(--mainFont);
+}
+
+.galleryTitle {
+  margin: 0 0 70px;
+  color: var(--red);
+  font-family: var(--secondaryFont);
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  text-shadow: -1px 2px var(--highlightBlue);
+}
+
+.galleryCarousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.galleryTrack {
+  width: 100%;
+  height: 410px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(210px, 1fr));
+  gap: 0;
+  align-items: center;
+  overflow: hidden;
+}
+
+.galleryImageButton {
+  width: 100%;
+  height: 330px;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+
+.galleryImageButton:nth-child(2),
+.galleryImageButton:nth-child(4) {
+  height: 380px;
+}
+
+.galleryImageButton:nth-child(3) {
+  height: 410px;
+}
+
+.galleryImageButton img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.galleryImageButton:hover img {
+  transform: scale(1.02);
+  filter: brightness(1.08);
+}
+
+.galleryArrow {
+  position: absolute;
+  z-index: 3;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(5, 5, 22, 0.82);
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 52px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.galleryArrowLeft {
+  left: 24px;
+}
+
+.galleryArrowRight {
+  right: 24px;
+}
+
+.galleryFullscreen {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(2, 2, 12, 0.96);
+}
+
+.galleryFullscreenImage {
+  max-width: calc(100vw - 180px);
+  max-height: calc(100vh - 80px);
+  object-fit: contain;
+  box-shadow: 0 12px 60px rgba(0, 0, 0, 0.55);
+}
+
+.galleryFullscreenClose,
+.galleryFullscreenArrow {
+  position: fixed;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.galleryFullscreenClose {
+  top: 22px;
+  right: 28px;
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1;
+}
+
+.galleryFullscreenArrow {
+  top: 50%;
+  width: 70px;
+  height: 70px;
+  transform: translateY(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 64px;
+  line-height: 1;
+}
+
+.galleryFullscreenArrowLeft {
+  left: 20px;
+}
+
+.galleryFullscreenArrowRight {
+  right: 20px;
+}
+
+@media (max-width: 900px) {
+  .galleryTrack {
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+  }
+
+  .galleryImageButton:nth-child(n + 4) {
+    display: none;
+  }
+
+  .galleryTitle {
+    margin-bottom: 45px;
+  }
+}
+
+@media (max-width: 680px) {
+  .gallerySection {
+    min-height: 440px;
+  }
+
+  .galleryTitle {
+    font-size: 38px;
+  }
+
+  .galleryTrack {
+    height: 360px;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+  }
+
+  .galleryImageButton {
+    height: 280px;
+  }
+
+  .galleryImageButton:nth-child(n + 3) {
+    display: none;
+  }
+
+  .galleryArrow {
+    width: 48px;
+    height: 48px;
+  }
+
+  .galleryArrowLeft {
+    left: 12px;
+  }
+
+  .galleryArrowRight {
+    right: 12px;
+  }
+
+  .galleryFullscreenImage {
+    max-width: calc(100vw - 30px);
+  }
+
+  .galleryFullscreenArrow {
+    top: auto;
+    bottom: 18px;
+  }
 }
