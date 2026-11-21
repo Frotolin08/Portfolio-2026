@@ -23,7 +23,7 @@ export default function VideoSection() {
     const visibleVideos = videos.filter(video => video.title).slice(0, 4);
 
     return (
-        <section className="videoSection" aria-labelledby="videoSectionTitle">
+        <section id="musica" className="videoSection" aria-labelledby="videoSectionTitle">
             <h2 id="videoSectionTitle" className="videoSectionTitle">Música</h2>
             <div className="videoSectionContent">
                 <img className="videoArabesque videoArabesqueLeft" src="/arabescoIzquierda.png" alt="" aria-hidden="true" />

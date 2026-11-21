@@ -1,23 +1,25 @@
 export default function NavBar(props) {
-
+    const scrollToSection = id => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
 
     return(
 <div className="navBar">
-<button className="navLogo">
+<button className="navLogo" type="button" onClick={() => scrollToSection("inicio")} aria-label="Ir al inicio">
     <img src="/favicon.svg"/>
 </button>
 
 <div className="navText">
-    <button>
+    <button type="button" onClick={() => scrollToSection("inicio")}>
     <p>Inicio</p>
     </button>
-    <button>
-    <p>Historia</p>
-    </button>
-    <button>
+    <button type="button" onClick={() => scrollToSection("musica")}>
     <p>Música</p>
     </button>
-    <button>
+    <button type="button" onClick={() => scrollToSection("historia")}>
+    <p>Historia</p>
+    </button>
+    <button type="button" onClick={() => scrollToSection("galeria")}>
     <p>Galería</p>
     </button>
 </div>

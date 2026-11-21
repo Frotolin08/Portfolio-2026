@@ -9,6 +9,86 @@
 
 }
 
+#inicio,
+#historia,
+#musica,
+#galeria {
+  scroll-margin-top: 110px;
+}
+
+.historySection {
+  width: 100%;
+}
+
+.titleSectionParent,
+.proximosShowsParent,
+.videoSection,
+.artistSection,
+.gallerySection,
+.showElement,
+.videoCard {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.titleSectionParent.is-visible,
+.proximosShowsParent.is-visible,
+.videoSection.is-visible,
+.artistSection.is-visible,
+.gallerySection.is-visible,
+.showElement.is-visible,
+.videoCard.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.showElement,
+.videoCard {
+  transition-duration: 650ms;
+}
+
+.buyButton,
+.galleryArrow,
+.galleryFullscreenClose,
+.galleryFullscreenArrow,
+.videoThumbnail,
+.galleryImageButton {
+  transition:
+    color 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease,
+    opacity 180ms ease;
+}
+
+.buyButton:hover,
+.galleryArrow:hover,
+.galleryFullscreenClose:hover,
+.galleryFullscreenArrow:hover {
+  transform: translateY(-2px) scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .titleSectionParent,
+  .proximosShowsParent,
+  .videoSection,
+  .artistSection,
+  .gallerySection,
+  .showElement,
+  .videoCard {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .titleSection h1 {
 
   font-family: var(--titleFont);
@@ -44,7 +124,7 @@ margin-top: 8rem;
   padding-left: 1%;
   padding-right: 15%;
   box-sizing: border-box;
-  z-index: 1000;
+  z-index: 1;
 }
 .navLogo {
   cursor: pointer;
@@ -69,6 +149,36 @@ gap: 6%;
   color: white;
   font-family: var(--mainFont);
   font-size: 17px;
+  position: relative;
+  transition: color 180ms ease, transform 180ms ease;
+}
+.navText button::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -6px;
+  height: 2px;
+  background: var(--red);
+  transition: right 220ms ease;
+}
+.navText button:hover,
+.navText button:focus-visible {
+  color: #e2e5ef;
+  transform: translateY(-2px);
+}
+.navText button:hover::after,
+.navText button:focus-visible::after {
+  right: 0;
+}
+.navLogo,
+.navLinks a {
+  transition: transform 180ms ease, filter 180ms ease;
+}
+.navLogo:hover,
+.navLinks a:hover {
+  transform: scale(1.06);
+  filter: brightness(1.15);
 }
 .navLinks {
   display: flex;
@@ -494,14 +604,17 @@ width: 80%;
   font-weight: 800;
   line-height: 1;
   text-align: center;
-  text-shadow: -1px 2px var(--highlightBlue);
+ 
 }
 
 .galleryCarousel {
   position: relative;
-  width: 100%;
+  width: 80%;
+  max-width: 1320px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .galleryTrack {
@@ -511,6 +624,7 @@ width: 80%;
   grid-template-columns: repeat(5, minmax(210px, 1fr));
   gap: 0;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -525,20 +639,13 @@ width: 80%;
   overflow: hidden;
 }
 
-.galleryImageButton:nth-child(2),
-.galleryImageButton:nth-child(4) {
-  height: 380px;
-}
 
-.galleryImageButton:nth-child(3) {
-  height: 410px;
-}
 
 .galleryImageButton img {
   width: 100%;
   height: 100%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 180ms ease, filter 180ms ease;
 }
 
@@ -576,12 +683,22 @@ width: 80%;
 
 .galleryFullscreen {
   position: fixed;
-  z-index: 1000;
+  z-index: 2001;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(2, 2, 12, 0.96);
+  background: #02020c;
+  height: 100vh;
+  width: 100vw;
+}
+
+.gallery-modal-open .navBar,
+.gallery-modal-open .galleryArrow {
+  visibility: hidden;
+  pointer-events: none;
+  top: 0px;
+  left: 0px;
 }
 
 .galleryFullscreenImage {
@@ -613,7 +730,6 @@ width: 80%;
   top: 50%;
   width: 70px;
   height: 70px;
-  transform: translateY(-50%);
   font-family: Arial, sans-serif;
   font-size: 64px;
   line-height: 1;
@@ -684,4 +800,16 @@ width: 80%;
     top: auto;
     bottom: 18px;
   }
+}
+.footer {
+  width: 100%;
+  height: 200px;
+  background-color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 30px;
+  box-sizing: border-box;
+  color: white;
+  font-family: var(--mainFont);
 }

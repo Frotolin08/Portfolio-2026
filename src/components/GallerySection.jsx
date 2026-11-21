@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const fallbackImages = [
     "/baranda_fest.jpg",
@@ -45,10 +46,12 @@ export default function GallerySection() {
 
         document.addEventListener("keydown", closeOnEscape);
         document.body.style.overflow = "hidden";
+        document.documentElement.classList.add("gallery-modal-open");
 
         return () => {
             document.removeEventListener("keydown", closeOnEscape);
             document.body.style.overflow = "";
+            document.documentElement.classList.remove("gallery-modal-open");
         };
     }, [fullscreenIndex, images.length]);
 
@@ -63,7 +66,7 @@ export default function GallerySection() {
     });
 
     return (
-        <section className="gallerySection" aria-labelledby="galleryTitle">
+        <section id="galeria" className="gallerySection" aria-labelledby="galleryTitle">
             <h2 id="galleryTitle" className="galleryTitle">Galería</h2>
             {images.length > 0 && (
                 <div className="galleryCarousel">
@@ -85,7 +88,12 @@ export default function GallerySection() {
                                 onClick={() => setFullscreenIndex(index)}
                                 aria-label={`Abrir imagen ${index + 1} en pantalla completa`}
                             >
-                                <img src={src} alt={`Galería ${index + 1}`} loading="lazy" />
+                                <img
+                                    src={src}
+                                    alt={`Galería ${index + 1}`}
+                                    loading="lazy"
+                                    decoding="async"
+                                />
                             </button>
                         ))}
                     </div>
@@ -102,6 +110,7 @@ export default function GallerySection() {
             )}
 
             {fullscreenIndex !== null && (
+                createPortal(
                 <div
                     className="galleryFullscreen"
                     role="dialog"
@@ -140,7 +149,9 @@ export default function GallerySection() {
                     >
                         ›
                     </button>
-                </div>
+                </div>,
+                document.body
+                )
             )}
         </section>
     );
