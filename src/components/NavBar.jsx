@@ -4,7 +4,7 @@ export default function NavBar(props) {
     return(
 <div className="navBar">
 <button className="navLogo">
-    <img src="/public/favicon.svg"/>
+    <img src="/favicon.svg"/>
 </button>
 
 <div className="navText">
