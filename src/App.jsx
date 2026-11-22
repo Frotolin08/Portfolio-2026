@@ -6,10 +6,32 @@ import VideoSection from "./components/VideoSection"
 import ArtistSection from "./components/ArtistSection"
 import GallerySection from "./components/GallerySection"
 import Footer from "./components/Footer"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    setMatches(media.matches);
+
+    const listener = (event) => setMatches(event.matches);
+    media.addEventListener('change', listener);
+    
+    return () => media.removeEventListener('change', listener);
+  }, [query]);
+
+  return matches;
+}
+
+
 
 export default function App() {
+
+  const isMobile = useMediaQuery('(max-width: 861px)');
+
   useEffect(() => {
+    
     const targets = document.querySelectorAll(
       ".titleSectionParent, .proximosShowsParent, .videoSection, .artistSection, .gallerySection, .showElement, .videoCard"
     );
@@ -33,6 +55,16 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  if (isMobile) {
+    return (
+      <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100vh", backgroundColor: "#000"}}>
+        <p style={{color: "white", padding: "20px", fontFamily: 'Montserrat'}}>Esta pagina no esta diseñada para dispositivos móviles, por favor visite la pagina desde un dispositivo de escritorio o seleccione
+  la opción de "Ver como escritorio" en su navegador para continuar.
+        </p>
+      </div>
+    );
+  }
+
   return(
     <div className="background"> 
       <NavBar/>
@@ -49,7 +81,7 @@ export default function App() {
       />
        <ArtistSection
         image="/foto_male.png"
-        name="Malena Garbugino"
+        name="Malena Garbugino Vior"
         instruments={["Voces", "Bajo eléctrico"]}
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
@@ -61,7 +93,7 @@ export default function App() {
       />
        <ArtistSection
         image="/foto_diego.png"
-        name="Diego Franco Rincon"
+        name="Diego Ignacio Franco Rincon"
         instruments={["Bateria", "Percusion"]}
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />

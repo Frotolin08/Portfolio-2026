@@ -99,7 +99,7 @@
   
 }
 .titleSection img {
-  max-height: 500px;
+  max-height: 70vh;
 }
 
 .titleSection {
@@ -300,6 +300,7 @@ width: 80%;
   flex-direction: row;
   width: 100%;
   gap: 5%;  
+  flex-wrap: wrap;
 }
 .pastShowData {
   display: flex;
@@ -307,6 +308,7 @@ width: 80%;
   justify-content: flex-start;
   align-items: flex-start;
   gap: 20px;
+  flex-wrap: nowrap;
 }
 
 .videoSection {
