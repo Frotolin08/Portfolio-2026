@@ -8,18 +8,70 @@ const fallbackImages = [
     "/fotoTitle.webp",
 ];
 
+function preloadImages(imageList) {
+    imageList.forEach(src => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = src;
+    });
+}
+
 export default function GallerySection() {
-    const [images, setImages] = useState(fallbackImages);
+    const [images, setImages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [fullscreenIndex, setFullscreenIndex] = useState(null);
+    const [canLoadGallery, setCanLoadGallery] = useState(false);
 
     useEffect(() => {
+        let delayId;
+        let idleId;
+
+        const queueGalleryLoad = () => {
+            if ("requestIdleCallback" in window) {
+                idleId = window.requestIdleCallback(() => {
+                    setCanLoadGallery(true);
+                }, { timeout: 4000 });
+                return;
+            }
+
+            delayId = window.setTimeout(() => {
+                setCanLoadGallery(true);
+            }, 1200);
+        };
+
+        const onWindowLoaded = () => {
+            delayId = window.setTimeout(queueGalleryLoad, 300);
+        };
+
+        if (document.readyState === "complete") {
+            onWindowLoaded();
+        } else {
+            window.addEventListener("load", onWindowLoaded, { once: true });
+        }
+
+        return () => {
+            window.removeEventListener("load", onWindowLoaded);
+            if (delayId) window.clearTimeout(delayId);
+            if (idleId && "cancelIdleCallback" in window) {
+                window.cancelIdleCallback(idleId);
+            }
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!canLoadGallery) return;
+
         let active = true;
+
+        setImages(fallbackImages);
+
+        preloadImages(fallbackImages);
 
         fetch("/gallery_manifest.json")
             .then(response => response.ok ? response.json() : [])
             .then(galleryImages => {
                 if (active && Array.isArray(galleryImages) && galleryImages.length > 0) {
+                    preloadImages(galleryImages);
                     setImages(galleryImages);
                     setCurrentIndex(0);
                 }
@@ -29,7 +81,7 @@ export default function GallerySection() {
         return () => {
             active = false;
         };
-    }, []);
+    }, [canLoadGallery]);
 
     useEffect(() => {
         if (fullscreenIndex === null) return;
@@ -91,7 +143,7 @@ export default function GallerySection() {
                                 <img
                                     src={src}
                                     alt={`Galería ${index + 1}`}
-                                    loading="lazy"
+                                    loading="eager"
                                     decoding="async"
                                 />
                             </button>
