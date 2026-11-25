@@ -26,7 +26,7 @@ export default function VideoSection() {
         <section id="musica" className="videoSection" aria-labelledby="videoSectionTitle">
             <h2 id="videoSectionTitle" className="videoSectionTitle">Música</h2>
             <div className="videoSectionContent">
-                <img className="videoArabesque videoArabesqueLeft" src="/arabescoIzquierda.png" alt="" aria-hidden="true" />
+                <img className="videoArabesque videoArabesqueLeft" src="/arabescoIzquierda.webp" alt="" aria-hidden="true" />
                 <div className="videoGrid">
                     {visibleVideos.map((video, index) => {
                         const videoId = getYouTubeVideoId(video.link);
@@ -65,7 +65,7 @@ export default function VideoSection() {
                         );
                     })}
                 </div>
-                <img className="videoArabesque videoArabesqueRight" src="/arabescoDerecha.png" alt="" aria-hidden="true" />
+                <img className="videoArabesque videoArabesqueRight" src="/arabescoDerecha.webp" alt="" aria-hidden="true" />
             </div>
         </section>
     );

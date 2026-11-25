@@ -74,25 +74,25 @@ export default function App() {
       <VideoSection/>
       <div id="historia" className="historySection">
       <ArtistSection
-        image="/foto_leon.png"
+        image="/foto_leon.webp"
         name="Leon Dergarabedian"
         instruments={["Voces", "Guitarra principal"]}
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
        <ArtistSection
-        image="/foto_male.png"
+        image="/foto_male.webp"
         name="Malena Garbugino Vior"
         instruments={["Voces", "Bajo eléctrico"]}
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
        <ArtistSection
-        image="/foto_mathi.png"
+        image="/foto_mathi.webp"
         name="Mathias Fogolin Lagares"
         instruments={["Teclados", "Guitarra ritmica"]}
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
        <ArtistSection
-        image="/foto_diego.png"
+        image="/foto_diego.webp"
         name="Diego Ignacio Franco Rincon"
         instruments={["Bateria", "Percusion"]}
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

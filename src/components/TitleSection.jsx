@@ -3,11 +3,11 @@ export default function TitleSection() {
     return(
         <div id="inicio" className="titleSectionParent">
         <div className='titleSection'>
-        <img src="/arabescoIzquierda.png"/>
+        <img src="/arabescoIzquierda.webp"/>
          <h1>Fortunato <br/> &nbsp;  &nbsp; Talavera</h1>
-         <img src="/arabescoDerecha.png"/>
+         <img src="/arabescoDerecha.webp"/>
         </div>
-        <img className="titleSectionImage" src="/fotoTitle.png"/>
+        <img className="titleSectionImage" src="/fotoTitle.webp"/>
 
         <p className='titleSectionText'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
              labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 
 const fallbackImages = [
-    "/baranda_fest.jpg",
+    "/baranda_fest.webp",
     "/pellerock.webp",
-    "/nta_fest.jpg",
-    "/fotoTitle.png",
+    "/nta_fest.webp",
+    "/fotoTitle.webp",
 ];
 
 export default function GallerySection() {
